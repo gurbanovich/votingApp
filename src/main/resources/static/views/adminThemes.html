@@ -1,0 +1,31 @@
+<div class="generic-container">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<span class="lead" ng-bind="tctrl.vote.theme.name"></span>
+		</div>
+		<div class="panel-body">
+			<div class="formcontainer">
+				<form action="#/admin">
+					<button type="Submit" class="btn btn-success custom-width">Cansel</button>
+				</form>
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>No item</th>
+							<th>Item</th>
+							<th>Statistic</th>
+							<th>Number of votes</th>							
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="vote in votes">
+							<td ng-bind="vote.noItem" /></td>
+							<td ng-bind="vote.item" /></td>
+							<td ng-bind="vote.statOfVotes | number: 2" /> 
+							<td ng-bind="vote.numberOfVotes" /></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>

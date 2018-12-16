@@ -1,0 +1,38 @@
+<div class="generic-container">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<span class="lead" ng-bind="vctrl.vote.theme.name"></span>
+		</div>
+		<div class="panel-body">
+			<div class="formcontainer">
+				<div class="alert alert-success" role="alert"
+					ng-if="vctrl.successMessage">{{vctrl.successMessage}}</div>
+				<div class="alert alert-danger" role="alert"
+					ng-if="vctrl.errorMessage">{{vctrl.errorMessage}}</div>
+				<form action="#/client">
+					<button type="Submit" class="btn btn-success custom-width">Cansel</button>
+				</form>
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>No item</th>
+							<th>Item</th>
+							<th>Statistic</th>
+							<th width="90"></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="vote in votes">
+							<td ng-bind="vote.noItem" /></td>
+							<td ng-bind="vote.item" /></td>
+							<td ng-bind="vote.statOfVotes | number: 2" />
+							<td><button type="button"
+									ng-click="toVote(vctrl.vote.theme.themeId, vote.voteId)"
+									class="btn btn-success custom-width"
+									ng-disabled="vctrl.vote.theme.status != 'started'">Vote</button></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
